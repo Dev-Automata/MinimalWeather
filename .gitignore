@@ -40,3 +40,6 @@ Carthage/Build
 
 # Editors
 .idea/
+
+# Other
+Source/OpenWeather-Info.plist

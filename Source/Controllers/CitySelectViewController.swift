@@ -19,10 +19,14 @@ class CitySelectViewController: UIViewController {
         errorLabel.isHidden = true
         cityTextField.addBottomBorder(tag: "bottomLine", color: UIColor(named: K.AssetsColors.textColorBase))
     }
-    
-    
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        cityTextField.changeBottomBorder(for: "bottomLine", to: UIColor(named: K.AssetsColors.textColorMuted))
+    }
+
     @IBAction func citySearchPressed(_ sender: UIButton) {
-//        cityTextField.changeBottomBorder(for: "bottomLine", to: UIColor(named: K.AssetsColors.textColorMuted))
     }
     
 }
