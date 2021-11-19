@@ -4,14 +4,14 @@
 
 import Foundation
 
-protocol WeatherServiceDelegate {
+protocol WeatherServiceDelegate: AnyObject {
     func didUpdateWeather(_ weatherManager: WeatherService, weather: WeatherModel)
     func didFailWithError(error: Error)
 }
 
 class WeatherService {
 
-   var delegate: WeatherServiceDelegate?
+   weak var delegate: WeatherServiceDelegate?
 
    public func getForecastForCity(name city: String) {
        let _ = apiClient.send(request: GetForecastByCity(name: city)) { data, error in

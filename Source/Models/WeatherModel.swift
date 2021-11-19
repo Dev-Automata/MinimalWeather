@@ -13,19 +13,19 @@ struct WeatherModel {
     let windSpeed: Double
 
     var temperatureString: String {
-        return String(format: "%.0f", temperature)
+        return String(Int(round(temperature)))
     }
 
     var pressureString: String {
-        return  String("\(pressure) рт.ст.")
+        return String(pressure)
     }
 
     var humidityString: String {
-        return  String("\(humidity) %")
+        return String(humidity)
     }
 
     var windSpeedString: String {
-        return  String("\(windSpeed) м/сек")
+        return String(Int(round(windSpeed)))
     }
 
     var conditionName: String {

@@ -10,8 +10,9 @@ import UIKit
 class WeatherViewController: UIViewController {
 
     let weatherService = WeatherService()
+    var city: String?
 
-    @IBOutlet weak var cityNameLabel: UIButton!
+    @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var pressureLabel: UILabel!
@@ -24,24 +25,33 @@ class WeatherViewController: UIViewController {
         weatherService.delegate = self
     }
     
-    @IBAction func cityNamePressed(_ sender: UIButton) {
-    }
-    
     @IBAction func locationPressed(_ sender: UIButton) {
         weatherService.getForecastForCity(name: "Moscow")
     }
 
-    @IBAction func themeTogglePressed(_ sender: UIButton) {
+    @IBAction func unwindToWeatherScreen(_ unwindSegue: UIStoryboardSegue) {
+        guard let city = city else { return }
+        weatherService.getForecastForCity(name: city)
+    }
+
+    private func updateUIOnWeatherLoad(with data: WeatherModel) {
+        cityNameLabel.text = data.cityName
+        weatherIcon.image = UIImage(systemName: data.conditionName)
+        temperatureLabel.text = data.temperatureString
+        pressureLabel.text = data.pressureString
+        humidityLabel.text = data.humidityString
+        windLabel.text = data.windSpeedString
     }
 
 }
 
-
+// MARK: - WeatherServiceDelegate
 extension WeatherViewController: WeatherServiceDelegate {
 
     func didUpdateWeather(_ weatherManager: WeatherService, weather: WeatherModel) {
-        print(weather.temperatureString)
-        print(weather.windSpeedString)
+        DispatchQueue.main.async {
+            self.updateUIOnWeatherLoad(with: weather)
+        }
     }
 
     func didFailWithError(error: Error) {

@@ -11,7 +11,7 @@
         <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="MinimalWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WeatherScreen" id="BYZ-38-t0r" customClass="WeatherViewController" customModule="MinimalWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,20 +19,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="GDr-P3-6co">
                                 <rect key="frame" x="0.0" y="74" width="414" height="788"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2O-m4-Bqd">
-                                        <rect key="frame" x="118.5" y="0.0" width="177.5" height="57"/>
-                                        <color key="tintColor" name="textColorBase"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="CityName">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="36"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="cityNamePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JAD-sD-4Db"/>
-                                            <segue destination="BFk-ab-653" kind="show" id="nnr-y2-G2v"/>
-                                        </connections>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moscow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcy-Eo-SwV">
+                                        <rect key="frame" x="163" y="0.0" width="88" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" name="textColorMuted"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.max" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tQW-rP-q5p">
-                                        <rect key="frame" x="132" y="106.5" width="150" height="150.5"/>
+                                        <rect key="frame" x="132" y="78.5" width="150" height="150.5"/>
                                         <color key="tintColor" name="textColorBase"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="dLT-8u-YRd"/>
@@ -40,7 +34,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Tow-7K-0M5">
-                                        <rect key="frame" x="126.5" y="307" width="161.5" height="86"/>
+                                        <rect key="frame" x="126.5" y="279" width="161.5" height="86"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udx-MK-mBh">
                                                 <rect key="frame" x="0.0" y="0.0" width="73" height="86"/>
@@ -57,7 +51,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iJI-4g-Cff">
-                                        <rect key="frame" x="95.5" y="443" width="223" height="20"/>
+                                        <rect key="frame" x="95.5" y="415" width="223" height="20"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="exl-Bz-IJr">
                                                 <rect key="frame" x="0.0" y="0.0" width="76.5" height="20"/>
@@ -131,10 +125,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y0t-an-QQB">
-                                        <rect key="frame" x="20" y="513" width="374" height="275"/>
+                                        <rect key="frame" x="20" y="485" width="374" height="303"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfH-oF-cXM">
-                                                <rect key="frame" x="0.0" y="235.5" width="40" height="39"/>
+                                                <rect key="frame" x="0.0" y="263.5" width="40" height="39"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="ZkS-a9-ds2"/>
                                                     <constraint firstAttribute="height" constant="40" id="rgy-AM-Z5g"/>
@@ -147,16 +141,16 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obh-Rz-M5J">
-                                                <rect key="frame" x="334" y="235.5" width="40" height="39"/>
+                                                <rect key="frame" x="334" y="263.5" width="40" height="39"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="5OP-1s-Wxd"/>
                                                     <constraint firstAttribute="height" constant="40" id="N4D-HQ-jjW"/>
                                                 </constraints>
                                                 <color key="tintColor" name="textColorMuted"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" backgroundImage="sun.max.circle.fill" catalog="system"/>
+                                                <state key="normal" backgroundImage="building.2.crop.circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="themeTogglePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AvQ-kC-cLc"/>
+                                                    <segue destination="BFk-ab-653" kind="show" identifier="toCitySelectScreen" id="KX3-1Q-UrQ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -178,7 +172,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cityNameLabel" destination="M2O-m4-Bqd" id="riq-0i-sT0"/>
+                        <outlet property="cityNameLabel" destination="lcy-Eo-SwV" id="49e-KH-CLH"/>
                         <outlet property="humidityLabel" destination="NhS-KX-i9F" id="Ibr-XC-e0g"/>
                         <outlet property="pressureLabel" destination="YJ5-JF-1is" id="Vd8-1k-Wtv"/>
                         <outlet property="temperatureLabel" destination="Udx-MK-mBh" id="Eym-9S-zgz"/>
@@ -193,7 +187,7 @@
         <!--City Select View Controller-->
         <scene sceneID="49b-ve-nm4">
             <objects>
-                <viewController id="BFk-ab-653" customClass="CitySelectViewController" customModule="MinimalWeather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CitySelectScreen" id="BFk-ab-653" customClass="CitySelectViewController" customModule="MinimalWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3z1-IU-hiF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,6 +219,7 @@
                                         <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
                                         <connections>
                                             <action selector="citySearchPressed:" destination="BFk-ab-653" eventType="touchUpInside" id="l0g-Zh-76H"/>
+                                            <segue destination="Fvu-Fy-3ed" kind="unwind" identifier="toWeatherScreen" unwindAction="unwindToWeatherScreen:" id="hmk-wd-wJs"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -253,17 +248,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdl-7U-kjJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Fvu-Fy-3ed" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="770" y="84"/>
         </scene>
     </scenes>
     <resources>
         <image name="barometer" catalog="system" width="128" height="121"/>
+        <image name="building.2.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="humidity" catalog="system" width="128" height="98"/>
         <image name="location.circle.fill" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="sun.max" catalog="system" width="128" height="124"/>
-        <image name="sun.max.circle.fill" catalog="system" width="128" height="121"/>
         <image name="wind" catalog="system" width="128" height="103"/>
         <namedColor name="bgColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
