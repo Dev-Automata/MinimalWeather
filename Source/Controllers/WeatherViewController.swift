@@ -54,13 +54,13 @@ class WeatherViewController: UIViewController {
 // MARK: - WeatherServiceDelegate
 extension WeatherViewController: WeatherServiceDelegate {
 
-    func didUpdateWeather(_ weatherManager: WeatherService, weather: WeatherModel) {
+    func didUpdateWeather(_ weatherService: WeatherService, weather: WeatherModel) {
         DispatchQueue.main.async {
             self.updateUIOnWeatherLoad(with: weather)
         }
     }
 
-    func didFailWithError(error: Error) {
+    func didWeatherFailWithError(error: Error) {
         print(error)
     }
 }

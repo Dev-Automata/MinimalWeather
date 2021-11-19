@@ -5,8 +5,8 @@
 import Foundation
 
 protocol WeatherServiceDelegate: AnyObject {
-    func didUpdateWeather(_ weatherManager: WeatherService, weather: WeatherModel)
-    func didFailWithError(error: Error)
+    func didUpdateWeather(_ weatherService: WeatherService, weather: WeatherModel)
+    func didWeatherFailWithError(error: Error)
 }
 
 class WeatherService {
@@ -28,13 +28,27 @@ class WeatherService {
    private lazy var apiClient = APIClient(host: "api.openweathermap.org", apiKey: ["appid": apiKeyOW])
     
    private func handleResponse(data: Data?, error: Error?) {
+       if error != nil {
+           self.delegate?.didWeatherFailWithError(error: error!)
+       }
+
        guard let data = data else {
-           self.delegate?.didFailWithError(error: error!)
+           let errorDomain = "weather_fetching"
+           let errorCode = 100
+           let errorInfo = [NSLocalizedDescriptionKey: "No results were sent by the server."]
+
+           self.delegate?.didWeatherFailWithError(error: NSError(domain: errorDomain, code: errorCode, userInfo: errorInfo))
            return
        }
 
+       print(String(data: data, encoding: .utf8))
+
        guard let weather = self.parseJSON(data) else {
-           self.delegate?.didFailWithError(error: error!)
+           let errorDomain = "weather_fetching"
+           let errorCode = 200
+           let errorInfo = [NSLocalizedDescriptionKey: "JSON parser error."]
+
+           self.delegate?.didWeatherFailWithError(error: NSError(domain: errorDomain, code: errorCode, userInfo: errorInfo))
            return
        }
 
@@ -63,7 +77,7 @@ class WeatherService {
            return weather
 
        } catch {
-           delegate?.didFailWithError(error: error)
+           delegate?.didWeatherFailWithError(error: error)
            return nil
        }
    }
