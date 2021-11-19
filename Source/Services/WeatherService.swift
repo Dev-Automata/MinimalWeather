@@ -41,8 +41,6 @@ class WeatherService {
            return
        }
 
-       print(String(data: data, encoding: .utf8))
-
        guard let weather = self.parseJSON(data) else {
            let errorDomain = "weather_fetching"
            let errorCode = 200

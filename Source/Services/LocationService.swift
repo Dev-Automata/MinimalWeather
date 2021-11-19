@@ -10,9 +10,9 @@ protocol LocationServiceDelegate: AnyObject {
     func didLocationFailWithError(error: Error)
 }
 
-class LocationService: NSObject, CLLocationManagerDelegate {
+class LocationService: NSObject {
 
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
 
     weak var delegate: LocationServiceDelegate?
 
@@ -21,25 +21,60 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         locationManager.delegate = self
     }
 
-    func requestLocationOnAppStart() {
+    public func requestLocationOnAppStart() {
         locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
     }
 
-    func requestLocationOnUserDemand() {
+    public func requestLocationOnUserDemand() {
         locationManager.requestLocation()
     }
+    
+    private func handleAuthStatusChange(on status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            fallthrough
+        case .denied:
+            handleAutReject()
+            break
+        case .authorizedAlways:
+            fallthrough
+        case .authorizedWhenInUse:
+            fallthrough
+        case .authorized:
+            locationManager.requestLocation()
+            break
+        default: break
+        }
+    }
+    
+    private func handleAutReject() {
+        let errorDomain = "location"
+        let errorCode = 100
+        let errorInfo = [NSLocalizedDescriptionKey: "Location manager not authorized."]
+        
+        delegate?.didLocationFailWithError(error: NSError(domain: errorDomain, code: errorCode, userInfo: errorInfo))
+    }
 
+}
+
+// MARK: - CLLocationManagerDelegate
+extension LocationService: CLLocationManagerDelegate {
+    
+    // TODO: maybe locationManagerDidChangeAuthorization (since iOS 14)
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        handleAuthStatusChange(on: status)
+    }
+        
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             locationManager.stopUpdatingLocation()
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
-
+            
             delegate?.didUpdateLocation(self, latitude: lat, longitude: lon)
         }
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         delegate?.didLocationFailWithError(error: error)
     }
