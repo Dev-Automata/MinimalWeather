@@ -35,14 +35,18 @@ class CitySelectViewController: UIViewController {
         }
     }
 
+    private var isSubmittedViaReturn = false;
+
     private func prepareWeatherScreen(_ segue: UIStoryboardSegue) {
         guard let weatherScreen = segue.destination as? WeatherViewController else { return }
 
-        weatherScreen.city = cityTextField.text
+        weatherScreen.city = cityTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
-    private func searchPressed(_ city: String) {
-        performSegue(withIdentifier: K.Segues.toWeatherScreen, sender: self)
+    private func searchSubmitted() {
+        if isSubmittedViaReturn {
+            performSegue(withIdentifier: K.Segues.toWeatherScreen, sender: self)
+        }
     }
 }
 
@@ -50,10 +54,12 @@ class CitySelectViewController: UIViewController {
 extension CitySelectViewController: UITextFieldDelegate {
     
     @IBAction func citySearchPressed(_ sender: UIButton) {
+        isSubmittedViaReturn = false
         cityTextField.endEditing(true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        isSubmittedViaReturn = true
         cityTextField.endEditing(true)
         return true
     }
@@ -63,12 +69,9 @@ extension CitySelectViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let city = cityTextField.text {
-            searchPressed(city)
+        if cityTextField.hasText {
+            searchSubmitted()
         }
-        
-        cityTextField.text = ""
     }
-    
     
 }
