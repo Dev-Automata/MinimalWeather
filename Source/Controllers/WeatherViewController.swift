@@ -12,6 +12,7 @@ class WeatherViewController: UIViewController {
 
     let weatherService = WeatherService()
     let locationService = LocationService()
+    let storageService = StorageService()
 
     var city: String?
 
@@ -29,6 +30,10 @@ class WeatherViewController: UIViewController {
         locationService.delegate = self
 
         locationService.requestLocationOnAppStart()
+
+        if let city = storageService.loadSettings() {
+            weatherService.getForecastForCity(name: city)
+        }
     }
     
     @IBAction func locationPressed(_ sender: UIButton) {
@@ -38,6 +43,7 @@ class WeatherViewController: UIViewController {
     @IBAction func unwindToWeatherScreen(_ unwindSegue: UIStoryboardSegue) {
         guard let city = city else { return }
         weatherService.getForecastForCity(name: city)
+        storageService.saveSettings(city: city)
     }
 
     private func updateUIOnWeatherLoad(with data: WeatherModel) {
@@ -55,6 +61,8 @@ class WeatherViewController: UIViewController {
 extension WeatherViewController: WeatherServiceDelegate {
 
     func didUpdateWeather(_ weatherService: WeatherService, weather: WeatherModel) {
+        storageService.saveSettings(city: weather.cityName)
+
         DispatchQueue.main.async {
             self.updateUIOnWeatherLoad(with: weather)
         }
