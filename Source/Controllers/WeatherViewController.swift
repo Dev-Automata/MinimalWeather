@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 class WeatherViewController: UIViewController {
 
     let weatherService = WeatherService()
+    let locationService = LocationService()
+
     var city: String?
 
     @IBOutlet weak var cityNameLabel: UILabel!
@@ -23,10 +26,13 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
 
         weatherService.delegate = self
+        locationService.delegate = self
+
+        locationService.requestLocationOnAppStart()
     }
     
     @IBAction func locationPressed(_ sender: UIButton) {
-        weatherService.getForecastForCity(name: "Moscow")
+        locationService.requestLocationOnUserDemand()
     }
 
     @IBAction func unwindToWeatherScreen(_ unwindSegue: UIStoryboardSegue) {
@@ -57,4 +63,17 @@ extension WeatherViewController: WeatherServiceDelegate {
     func didFailWithError(error: Error) {
         print(error)
     }
+}
+
+// MARK: - LocationServiceDelegate
+extension WeatherViewController: LocationServiceDelegate {
+    func didUpdateLocation(_ locationService: LocationService, latitude: Double, longitude: Double) {
+        weatherService.getForecastForLocation(latitude: String(latitude), longitude: String(longitude))
+    }
+
+    func didLocationFailWithError(error: Error) {
+        print("Location manager error: \(error)")
+        performSegue(withIdentifier: K.Segues.toCitySelectScreen, sender: self)
+    }
+
 }
