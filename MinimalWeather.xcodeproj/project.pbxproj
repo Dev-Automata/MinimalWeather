@@ -42,6 +42,7 @@
 		611AE765CDE82EAC0575CB13 /* OpenWeather-Info-Sample.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "OpenWeather-Info-Sample.plist"; sourceTree = "<group>"; };
 		611AE8D72D15F21D8832E521 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		611AE8E568EAD485610EF373 /* OpenWeather-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "OpenWeather-Info.plist"; sourceTree = "<group>"; };
+		611AEB9CC206308A9A3CF9BC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		611AEC5A88EFFD779BBE59CF /* Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		611AECFF3FFA871394A31A4F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		611AED00AE57FD9C6D6F9A6C /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 				E8790E3B2746468E00490180 /* Source */,
 				E8790E512746487A00490180 /* .gitignore */,
 				E8790E3A2746468E00490180 /* Products */,
+				611AEB9CC206308A9A3CF9BC /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
