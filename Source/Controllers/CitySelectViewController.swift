@@ -17,6 +17,10 @@ class CitySelectViewController: UIViewController {
         cityTextField.addBottomBorder(tag: "bottomLine", color: UIColor(named: K.AssetsColors.textColorBase))
         cityTextField.delegate = self
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.view.endEditing(true)
+    }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
@@ -66,11 +70,7 @@ extension CitySelectViewController: UITextFieldDelegate {
         cityTextField.endEditing(true)
         return true
     }
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        return cityTextField.hasText
-    }
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         if cityTextField.hasText {
             searchSubmitted()
