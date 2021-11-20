@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,14 +14,14 @@
             <objects>
                 <viewController storyboardIdentifier="WeatherScreen" id="BYZ-38-t0r" customClass="WeatherViewController" customModule="MinimalWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="U3p-bc-8J7">
-                                <rect key="frame" x="0.0" y="30" width="320" height="538"/>
+                                <rect key="frame" x="0.0" y="74" width="414" height="788"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Kew-lO-kP4">
-                                        <rect key="frame" x="22" y="0.0" width="276" height="497.5"/>
+                                        <rect key="frame" x="69" y="0.0" width="276" height="497.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7U-WI-bED">
                                                 <rect key="frame" x="138" y="0.0" width="0.0" height="0.0"/>
@@ -149,10 +149,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="Y0t-an-QQB">
-                                        <rect key="frame" x="10" y="497.5" width="300" height="40.5"/>
+                                        <rect key="frame" x="10" y="497.5" width="394" height="290.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfH-oF-cXM">
-                                                <rect key="frame" x="0.0" y="1" width="40" height="39"/>
+                                                <rect key="frame" x="0.0" y="251" width="40" height="39"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="ZkS-a9-ds2"/>
                                                     <constraint firstAttribute="height" constant="40" id="rgy-AM-Z5g"/>
@@ -165,7 +165,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obh-Rz-M5J">
-                                                <rect key="frame" x="260" y="1" width="40" height="39"/>
+                                                <rect key="frame" x="354" y="251" width="40" height="39"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="5OP-1s-Wxd"/>
                                                     <constraint firstAttribute="height" constant="40" id="N4D-HQ-jjW"/>
@@ -214,24 +214,27 @@
             <objects>
                 <viewController storyboardIdentifier="CitySelectScreen" id="BFk-ab-653" customClass="CitySelectViewController" customModule="MinimalWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3z1-IU-hiF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="u1p-79-z2B">
-                                <rect key="frame" x="20" y="147" width="280" height="40"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="u1p-79-z2B">
+                                <rect key="frame" x="20" y="294" width="374" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите название города" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Q1-5D-NGT">
-                                        <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="324" height="40"/>
                                         <color key="tintColor" name="textColorBase"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="ADY-GE-jPB"/>
+                                        </constraints>
                                         <color key="textColor" name="textColorBase"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search" textContentType="address-level2"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBO-XO-BhZ">
-                                        <rect key="frame" x="240" y="0.5" width="40" height="38.5"/>
+                                        <rect key="frame" x="344" y="10.5" width="30" height="28.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="6gY-ru-K58"/>
-                                            <constraint firstAttribute="width" constant="40" id="WmE-LP-adF"/>
+                                            <constraint firstAttribute="height" constant="30" id="6gY-ru-K58"/>
+                                            <constraint firstAttribute="width" constant="30" id="WmE-LP-adF"/>
                                         </constraints>
                                         <color key="tintColor" name="textColorBase"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
