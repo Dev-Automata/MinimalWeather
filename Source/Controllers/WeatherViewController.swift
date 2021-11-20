@@ -12,7 +12,6 @@ class WeatherViewController: UIViewController {
 
     let weatherService = WeatherService()
     let locationService = LocationService()
-    let storageService = StorageService()
 
     var city: String?
 
@@ -31,8 +30,9 @@ class WeatherViewController: UIViewController {
 
         locationService.requestLocationOnAppStart()
 
-        if let city = storageService.loadSettings() {
-            weatherService.getForecastForCity(name: city)
+        if AppData.city != "" {
+            city = AppData.city
+            weatherService.getForecastForCity(name: AppData.city)
         }
     }
     
@@ -43,7 +43,6 @@ class WeatherViewController: UIViewController {
     @IBAction func unwindToWeatherScreen(_ unwindSegue: UIStoryboardSegue) {
         guard let city = city else { return }
         weatherService.getForecastForCity(name: city)
-        storageService.saveSettings(city: city)
     }
 
     private func updateUIOnWeatherLoad(with data: WeatherModel) {
@@ -61,7 +60,7 @@ class WeatherViewController: UIViewController {
 extension WeatherViewController: WeatherServiceDelegate {
 
     func didUpdateWeather(_ weatherService: WeatherService, weather: WeatherModel) {
-        storageService.saveSettings(city: weather.cityName)
+        AppData.city = weather.cityName
 
         DispatchQueue.main.async {
             self.updateUIOnWeatherLoad(with: weather)
@@ -75,6 +74,17 @@ extension WeatherViewController: WeatherServiceDelegate {
 
 // MARK: - LocationServiceDelegate
 extension WeatherViewController: LocationServiceDelegate {
+    func didAuthorizeRejected() {
+        print("Location manager not authorized.")
+
+        if AppData.city != "" {
+            city = AppData.city
+            weatherService.getForecastForCity(name: city!)
+        } else {
+            performSegue(withIdentifier: K.Segues.toCitySelectScreen, sender: self)
+        }
+    }
+
     func didUpdateLocation(_ locationService: LocationService, latitude: Double, longitude: Double) {
         weatherService.getForecastForLocation(latitude: String(latitude), longitude: String(longitude))
     }

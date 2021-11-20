@@ -8,6 +8,7 @@ import CoreLocation
 protocol LocationServiceDelegate: AnyObject {
     func didUpdateLocation(_ locationService: LocationService, latitude: Double, longitude: Double)
     func didLocationFailWithError(error: Error)
+    func didAuthorizeRejected()
 }
 
 class LocationService: NSObject {
@@ -34,7 +35,7 @@ class LocationService: NSObject {
         case .restricted:
             fallthrough
         case .denied:
-            handleAutReject()
+            delegate?.didAuthorizeRejected()
             break
         case .authorizedAlways:
             fallthrough
@@ -45,14 +46,6 @@ class LocationService: NSObject {
             break
         default: break
         }
-    }
-    
-    private func handleAutReject() {
-        let errorDomain = "location"
-        let errorCode = 100
-        let errorInfo = [NSLocalizedDescriptionKey: "Location manager not authorized."]
-        
-        delegate?.didLocationFailWithError(error: NSError(domain: errorDomain, code: errorCode, userInfo: errorInfo))
     }
 
 }

@@ -4,21 +4,30 @@
 
 import Foundation
 
-protocol SettingsStorage {
-    func loadSettings() -> String?
-    func saveSettings(city: String)
+@propertyWrapper
+struct Storage<T> {
+
+    private let key: String
+    private let defaultValue: T
+
+    init(key: String, defaultValue: T) {
+        self.key = key
+        self.defaultValue = defaultValue
+    }
+
+    var wrappedValue: T {
+        get {
+            return UserDefaults.standard.string(forKey: key) as? T ?? defaultValue
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: key)
+        }
+    }
 }
 
-class StorageService: SettingsStorage {
+struct AppData {
 
-    private var storage = UserDefaults.standard
-    private var storageKey = K.StorageKeys.city
+    @Storage(key: K.StorageKeys.city, defaultValue: "")
+    static var city: String
 
-    func loadSettings() -> String? {
-        return storage.string(forKey: K.StorageKeys.city)
-    }
-
-    func saveSettings(city: String) {
-        storage.set(city, forKey: K.StorageKeys.city)
-    }
 }
