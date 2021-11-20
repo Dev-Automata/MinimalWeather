@@ -17,6 +17,7 @@ class GetForecastByCity: Request {
             query: [
                 URLQueryItem(name: "q", value: name),
                 URLQueryItem(name: "units", value: "metric"),
+                URLQueryItem(name: "lang", value: "ru"),
             ]
         )
     }

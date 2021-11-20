@@ -14,6 +14,7 @@ class GetForecastForLocation: Request {
                     URLQueryItem(name: "lat", value: latitude),
                     URLQueryItem(name: "lon", value: longitude),
                     URLQueryItem(name: "units", value: "metric"),
+                    URLQueryItem(name: "lang", value: "ru"),
                 ]
         )
     }

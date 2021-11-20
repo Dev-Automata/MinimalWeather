@@ -50,6 +50,7 @@ class WeatherViewController: UIViewController {
     
     private func updateUIOnWeatherLoad(with data: WeatherModel) {
         cityNameLabel.text = data.cityName
+        weatherDescriptionLabel.text = data.description.uppercased();
         weatherIcon.image = UIImage(systemName: data.conditionName)
         temperatureLabel.text = data.temperatureString
         pressureLabel.text = data.pressureString

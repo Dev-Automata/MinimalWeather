@@ -59,6 +59,7 @@ class WeatherService {
            let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
            let id = decodedData.weather[0].id
            let name = decodedData.name
+           let description = decodedData.weather[0].description
            let temp = decodedData.main.temp
            let pressure = decodedData.main.pressure
            let humidity = decodedData.main.humidity
@@ -67,6 +68,7 @@ class WeatherService {
            let weather = WeatherModel(
                conditionId: id,
                cityName: name,
+               description: description,
                temperature: temp,
                pressure: pressure,
                humidity: humidity,
