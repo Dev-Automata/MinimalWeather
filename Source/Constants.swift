@@ -21,5 +21,9 @@ struct K {
         static let toCitySelectScreen = "toCitySelectScreen"
         static let toWeatherScreen = "toWeatherScreen"
     }
+
+    struct StorageKeys {
+        static let city = "city"
+    }
 }
 
