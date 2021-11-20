@@ -31,7 +31,6 @@ class WeatherViewController: UIViewController {
         locationService.requestLocationOnAppStart()
 
         if AppData.city != "" {
-            city = AppData.city
             weatherService.getForecastForCity(name: AppData.city)
         }
     }

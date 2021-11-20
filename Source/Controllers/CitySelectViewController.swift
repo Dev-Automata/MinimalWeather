@@ -27,6 +27,10 @@ class CitySelectViewController: UIViewController {
         cityTextField.changeBottomBorder(for: "bottomLine", to: UIColor(named: K.AssetsColors.textColorMuted))
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case K.Segues.toWeatherScreen:
@@ -60,6 +64,8 @@ extension CitySelectViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         isSubmittedViaReturn = true
+
+        cityTextField.resignFirstResponder()
         cityTextField.endEditing(true)
         return true
     }
