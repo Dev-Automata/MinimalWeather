@@ -18,6 +18,7 @@ struct WeatherModel {
 
     var pressureString: String {
         return String(pressure)
+        // 1 гектопаскаль = 0.75 миллиметра ртутного столба.
     }
 
     var humidityString: String {
