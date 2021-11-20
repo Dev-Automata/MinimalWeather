@@ -197,7 +197,12 @@
                     </view>
                     <connections>
                         <outlet property="cityNameLabel" destination="lcy-Eo-SwV" id="49e-KH-CLH"/>
+                        <outlet property="humidityLabel" destination="KhQ-Wo-7fr" id="iVV-7q-39v"/>
+                        <outlet property="pressureLabel" destination="JIz-Lf-alv" id="KvB-ci-wrg"/>
+                        <outlet property="temperatureLabel" destination="aND-7e-hPX" id="sxb-w1-Ntw"/>
+                        <outlet property="weatherDescriptionLabel" destination="lRJ-sv-VKY" id="yLW-80-CVv"/>
                         <outlet property="weatherIcon" destination="tQW-rP-q5p" id="pvM-ft-zbL"/>
+                        <outlet property="windLabel" destination="Hcy-ge-LfH" id="hfM-Vh-omG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -213,17 +218,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="u1p-79-z2B">
-                                <rect key="frame" x="50" y="147" width="220" height="40"/>
+                                <rect key="frame" x="20" y="147" width="280" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter the city" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Q1-5D-NGT">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите название города" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Q1-5D-NGT">
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
                                         <color key="tintColor" name="textColorBase"/>
                                         <color key="textColor" name="textColorBase"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search" textContentType="address-level2"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBO-XO-BhZ">
-                                        <rect key="frame" x="180" y="0.5" width="40" height="38.5"/>
+                                        <rect key="frame" x="240" y="0.5" width="40" height="38.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="6gY-ru-K58"/>
                                             <constraint firstAttribute="width" constant="40" id="WmE-LP-adF"/>
@@ -246,9 +251,9 @@
                         <viewLayoutGuide key="safeArea" id="vJr-wW-Nky"/>
                         <color key="backgroundColor" name="bgColor"/>
                         <constraints>
-                            <constraint firstItem="u1p-79-z2B" firstAttribute="leading" secondItem="vJr-wW-Nky" secondAttribute="leading" constant="50" id="FuS-fO-RBA"/>
+                            <constraint firstItem="vJr-wW-Nky" firstAttribute="trailing" secondItem="u1p-79-z2B" secondAttribute="trailing" constant="20" id="Dve-dl-Y7H"/>
                             <constraint firstItem="u1p-79-z2B" firstAttribute="centerX" secondItem="3z1-IU-hiF" secondAttribute="centerX" id="NG7-7p-RhJ"/>
-                            <constraint firstItem="vJr-wW-Nky" firstAttribute="trailing" secondItem="u1p-79-z2B" secondAttribute="trailing" constant="50" id="lPX-vC-2gY"/>
+                            <constraint firstItem="u1p-79-z2B" firstAttribute="leading" secondItem="vJr-wW-Nky" secondAttribute="leading" constant="20" id="Y7t-4L-hef"/>
                             <constraint firstItem="u1p-79-z2B" firstAttribute="centerY" secondItem="3z1-IU-hiF" secondAttribute="centerY" constant="-107" id="qtj-F2-tSn"/>
                         </constraints>
                     </view>
