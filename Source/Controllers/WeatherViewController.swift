@@ -33,7 +33,10 @@ class WeatherViewController: UIViewController {
         if AppData.city != "" {
             weatherService.getForecastForCity(name: AppData.city)
         }
+        
+        cityNameLabel.text = cityNameLabel.text?.uppercased()
     }
+
     
     @IBAction func locationPressed(_ sender: UIButton) {
         locationService.requestLocationOnUserDemand()
@@ -45,12 +48,12 @@ class WeatherViewController: UIViewController {
     }
 
     private func updateUIOnWeatherLoad(with data: WeatherModel) {
-        cityNameLabel.text = data.cityName
-        weatherIcon.image = UIImage(systemName: data.conditionName)
-        temperatureLabel.text = data.temperatureString
-        pressureLabel.text = data.pressureString
-        humidityLabel.text = data.humidityString
-        windLabel.text = data.windSpeedString
+//        cityNameLabel.text = data.cityName
+//        weatherIcon.image = UIImage(systemName: data.conditionName)
+//        temperatureLabel.text = data.temperatureString
+//        pressureLabel.text = data.pressureString
+//        humidityLabel.text = data.humidityString
+//        windLabel.text = data.windSpeedString
     }
 
 }

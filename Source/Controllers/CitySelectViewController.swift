@@ -10,14 +10,11 @@ import UIKit
 class CitySelectViewController: UIViewController {
 
     @IBOutlet weak var cityTextField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        errorLabel.isHidden = true
         cityTextField.addBottomBorder(tag: "bottomLine", color: UIColor(named: K.AssetsColors.textColorBase))
-        
         cityTextField.delegate = self
     }
 
