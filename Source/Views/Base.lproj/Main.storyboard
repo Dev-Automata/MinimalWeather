@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -165,14 +166,14 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obh-Rz-M5J">
-                                                <rect key="frame" x="354" y="277.5" width="40" height="39"/>
+                                                <rect key="frame" x="354" y="277" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="5OP-1s-Wxd"/>
                                                     <constraint firstAttribute="height" constant="40" id="N4D-HQ-jjW"/>
                                                 </constraints>
                                                 <color key="tintColor" name="textColorMuted"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" backgroundImage="building.2.crop.circle.fill" catalog="system"/>
+                                                <state key="normal" backgroundImage="citySelectIcon"/>
                                                 <connections>
                                                     <segue destination="BFk-ab-653" kind="show" identifier="toCitySelectScreen" id="KX3-1Q-UrQ"/>
                                                 </connections>
@@ -197,6 +198,7 @@
                     </view>
                     <connections>
                         <outlet property="cityNameLabel" destination="lcy-Eo-SwV" id="49e-KH-CLH"/>
+                        <outlet property="citySelectButton" destination="obh-Rz-M5J" id="kQf-um-VGQ"/>
                         <outlet property="humidityLabel" destination="KhQ-Wo-7fr" id="iVV-7q-39v"/>
                         <outlet property="pressureLabel" destination="JIz-Lf-alv" id="KvB-ci-wrg"/>
                         <outlet property="temperatureLabel" destination="aND-7e-hPX" id="sxb-w1-Ntw"/>
@@ -282,7 +284,7 @@
     </scenes>
     <resources>
         <image name="barometer" catalog="system" width="128" height="121"/>
-        <image name="building.2.crop.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="citySelectIcon" width="31" height="31"/>
         <image name="humidity" catalog="system" width="128" height="98"/>
         <image name="location.circle.fill" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
