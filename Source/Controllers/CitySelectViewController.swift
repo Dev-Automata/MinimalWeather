@@ -19,7 +19,7 @@ class CitySelectViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -28,10 +28,10 @@ class CitySelectViewController: UIViewController {
         cityTextField.changeBottomBorder(for: "bottomLine", to: UIColor(named: K.AssetsColors.textColorMuted))
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case K.Segues.toWeatherScreen:

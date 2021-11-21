@@ -4,7 +4,7 @@
 
 import Foundation
 
-class GetForecastForLocation: Request {
+class GetWeatherForLocation: Request {
 
     init(latitude: String, longitude: String) {
         super.init(

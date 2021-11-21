@@ -1,5 +1,5 @@
 //
-//  GetForecastForCity.swift
+//  GetWeatherForCity.swift
 //  MinimalWeather
 //
 //  Created by Кирилл Михайлин on 18.11.2021.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class GetForecastByCity: Request {
+class GetWeatherForCity: Request {
     
     init(name: String) {
         super.init(

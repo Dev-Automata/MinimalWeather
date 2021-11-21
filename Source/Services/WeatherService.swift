@@ -13,14 +13,14 @@ class WeatherService {
 
    weak var delegate: WeatherServiceDelegate?
 
-   public func getForecastForCity(name city: String) {
-       let _ = apiClient.send(request: GetForecastByCity(name: city)) { data, error in
+   public func getWeatherForCity(name city: String) {
+       let _ = apiClient.send(request: GetWeatherForCity(name: city)) { data, error in
            self.handleResponse(data: data, error: error)
        }
    }
 
-    public func getForecastForLocation(latitude: String, longitude: String) {
-        let _ = apiClient.send(request: GetForecastForLocation(latitude: latitude, longitude: longitude)) { data, error in
+    public func getWeatherForLocation(latitude: String, longitude: String) {
+        let _ = apiClient.send(request: GetWeatherForLocation(latitude: latitude, longitude: longitude)) { data, error in
             self.handleResponse(data: data, error: error)
         }
     }

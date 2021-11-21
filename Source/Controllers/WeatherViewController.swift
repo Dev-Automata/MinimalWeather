@@ -32,7 +32,7 @@ class WeatherViewController: UIViewController {
         locationService.requestLocationOnAppStart()
         
         if AppData.city != "" {
-            weatherService.getForecastForCity(name: AppData.city)
+            weatherService.getWeatherForCity(name: AppData.city)
         }
         
         weatherDescriptionLabel.text = weatherDescriptionLabel.text?.uppercased()
@@ -45,7 +45,7 @@ class WeatherViewController: UIViewController {
     
     @IBAction func unwindToWeatherScreen(_ unwindSegue: UIStoryboardSegue) {
         guard let city = city else { return }
-        weatherService.getForecastForCity(name: city)
+        weatherService.getWeatherForCity(name: city)
     }
     
     private func updateUIOnWeatherLoad(with data: WeatherModel) {
@@ -83,14 +83,14 @@ extension WeatherViewController: LocationServiceDelegate {
         
         if AppData.city != "" {
             city = AppData.city
-            weatherService.getForecastForCity(name: city!)
+            weatherService.getWeatherForCity(name: city!)
         } else {
             performSegue(withIdentifier: K.Segues.toCitySelectScreen, sender: self)
         }
     }
     
     func didUpdateLocation(_ locationService: LocationService, latitude: Double, longitude: Double) {
-        weatherService.getForecastForLocation(latitude: String(latitude), longitude: String(longitude))
+        weatherService.getWeatherForLocation(latitude: String(latitude), longitude: String(longitude))
     }
     
     func didLocationFailWithError(error: Error) {
