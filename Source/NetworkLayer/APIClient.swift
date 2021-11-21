@@ -6,6 +6,10 @@ import Foundation
 
 class APIClient {
 
+    private var urlComponents = URLComponents()
+
+    private var apiKey: [String : String] = [:]
+
     public init(host: String, scheme: String = "https", apiKey: [String : String] = [:]) {
         self.urlComponents.host = host
         self.urlComponents.scheme = scheme
@@ -28,10 +32,6 @@ class APIClient {
 
         task.resume()
     }
-
-    private var urlComponents = URLComponents()
-    
-    private var apiKey: [String : String] = [:]
 
     private func createEndpointURL(from request: APIRequest) -> URL? {
         var currentUrlComponents = URLComponents()

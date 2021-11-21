@@ -9,15 +9,24 @@ import UIKit
 
 class CitySelectViewController: UIViewController {
 
+    private var isSubmittedViaReturn = false
+
     @IBOutlet weak var cityTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        cityTextField.addBottomBorder(tag: "bottomLine", color: UIColor(named: K.AssetsColors.textColorBase))
+
         cityTextField.delegate = self
+
+        cityTextField.addBottomBorder(tag: "bottomLine", color: UIColor(named: K.AssetsColors.textColorBase))
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        cityTextField.becomeFirstResponder()
+    }
+
     override func viewDidDisappear(_ animated: Bool) {
         view.endEditing(true)
     }
@@ -40,12 +49,10 @@ class CitySelectViewController: UIViewController {
         }
     }
 
-    private var isSubmittedViaReturn = false;
-
     private func prepareWeatherScreen(_ segue: UIStoryboardSegue) {
         guard let weatherScreen = segue.destination as? WeatherViewController else { return }
 
-        weatherScreen.city = cityTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        weatherScreen.city = cityTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? K.Placeholders.cityName
     }
 
     private func searchSubmitted() {

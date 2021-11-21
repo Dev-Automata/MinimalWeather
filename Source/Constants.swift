@@ -25,5 +25,9 @@ struct K {
     struct StorageKeys {
         static let city = "city"
     }
+
+    struct Placeholders {
+        static let cityName = "--"
+    }
 }
 

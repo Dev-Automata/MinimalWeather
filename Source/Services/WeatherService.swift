@@ -11,22 +11,22 @@ protocol WeatherServiceDelegate: AnyObject {
 
 class WeatherService {
 
+   private lazy var apiClient = APIClient(host: "api.openweathermap.org", apiKey: ["appid": apiKeyOW])
+
    weak var delegate: WeatherServiceDelegate?
 
-   public func getWeatherForCity(name city: String) {
+   func getWeatherForCity(name city: String) {
        let _ = apiClient.send(request: GetWeatherForCity(name: city)) { data, error in
            self.handleResponse(data: data, error: error)
        }
    }
 
-    public func getWeatherForLocation(latitude: String, longitude: String) {
+    func getWeatherForLocation(latitude: String, longitude: String) {
         let _ = apiClient.send(request: GetWeatherForLocation(latitude: latitude, longitude: longitude)) { data, error in
             self.handleResponse(data: data, error: error)
         }
     }
 
-   private lazy var apiClient = APIClient(host: "api.openweathermap.org", apiKey: ["appid": apiKeyOW])
-    
    private func handleResponse(data: Data?, error: Error?) {
        if error != nil {
            self.delegate?.didWeatherFailWithError(error: error!)
