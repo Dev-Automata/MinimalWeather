@@ -25,7 +25,7 @@ class CitySelectViewController: UIViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
-        cityTextField.changeBottomBorder(for: "bottomLine", to: UIColor(named: K.AssetsColors.textColorMuted))
+        cityTextField.changeBottomBorder(for: "bottomLine", to: UIColor(named: K.AssetsColors.textColorBase))
     }
 
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
