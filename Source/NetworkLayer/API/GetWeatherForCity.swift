@@ -10,14 +10,14 @@ import UIKit
 
 class GetWeatherForCity: Request {
     
-    init(name: String) {
+    init(name: String, lang: String) {
         super.init(
             path: "/data/2.5/weather",
             method: .get,
             query: [
                 URLQueryItem(name: "q", value: name),
                 URLQueryItem(name: "units", value: "metric"),
-                URLQueryItem(name: "lang", value: "ru"),
+                URLQueryItem(name: "lang", value: lang),
             ]
         )
     }

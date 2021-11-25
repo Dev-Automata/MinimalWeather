@@ -226,7 +226,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="u1p-79-z2B">
                                 <rect key="frame" x="20" y="294" width="374" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter the city name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Q1-5D-NGT">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите название города" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Q1-5D-NGT">
                                         <rect key="frame" x="0.0" y="0.0" width="324" height="40"/>
                                         <color key="tintColor" name="textColorBase"/>
                                         <constraints>

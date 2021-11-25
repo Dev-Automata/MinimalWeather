@@ -28,8 +28,9 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         
         weatherService.delegate = self
+        weatherService.setRequestLanguage(getAppLang("ru"))
+
         locationService.delegate = self
-        
         locationService.requestLocationOnAppStart()
         
         if AppData.city != "" {

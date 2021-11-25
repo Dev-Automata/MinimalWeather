@@ -6,7 +6,7 @@ import Foundation
 
 class GetWeatherForLocation: Request {
 
-    init(latitude: String, longitude: String) {
+    init(latitude: String, longitude: String, lang: String) {
         super.init(
                 path: "/data/2.5/weather",
                 method: .get,
@@ -14,7 +14,7 @@ class GetWeatherForLocation: Request {
                     URLQueryItem(name: "lat", value: latitude),
                     URLQueryItem(name: "lon", value: longitude),
                     URLQueryItem(name: "units", value: "metric"),
-                    URLQueryItem(name: "lang", value: "ru"),
+                    URLQueryItem(name: "lang", value: lang),
                 ]
         )
     }
