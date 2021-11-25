@@ -13,7 +13,7 @@ class WeatherViewController: UIViewController {
     let weatherService = WeatherService()
     let locationService = LocationService()
     
-    var city: String?
+    var city: String = K.Placeholders.cityName
     
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
@@ -46,7 +46,7 @@ class WeatherViewController: UIViewController {
     }
     
     @IBAction func unwindToWeatherScreen(_ unwindSegue: UIStoryboardSegue) {
-        guard let city = city else { return }
+        guard city != "", city != K.Placeholders.cityName else { return }
         weatherService.getWeatherForCity(name: city)
     }
     
@@ -85,7 +85,7 @@ extension WeatherViewController: LocationServiceDelegate {
         
         if AppData.city != "" {
             city = AppData.city
-            weatherService.getWeatherForCity(name: city!)
+            weatherService.getWeatherForCity(name: city)
         } else {
             performSegue(withIdentifier: K.Segues.toCitySelectScreen, sender: self)
         }

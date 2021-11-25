@@ -25,4 +25,8 @@ enum K {
     enum StorageKeys {
         static let city = "city"
     }
+
+    struct Placeholders {
+        static let cityName = "--"
+    }
 }

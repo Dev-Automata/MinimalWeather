@@ -22,11 +22,11 @@ class LocationService: NSObject {
         locationManager.delegate = self
     }
 
-    public func requestLocationOnAppStart() {
+    func requestLocationOnAppStart() {
         locationManager.requestWhenInUseAuthorization()
     }
 
-    public func requestLocationOnUserDemand() {
+    func requestLocationOnUserDemand() {
         locationManager.requestLocation()
     }
     
@@ -52,8 +52,7 @@ class LocationService: NSObject {
 
 // MARK: - CLLocationManagerDelegate
 extension LocationService: CLLocationManagerDelegate {
-    
-    // TODO: maybe locationManagerDidChangeAuthorization (since iOS 14)
+
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         handleAuthStatusChange(on: status)
     }
