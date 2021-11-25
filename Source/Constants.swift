@@ -5,25 +5,24 @@
 //  Created by Кирилл Михайлин on 18.11.2021.
 //
 
-struct K {
+enum K {
 
-    struct AssetsColors {
+    enum AssetsColors {
         static let textColorBase = "textColorBase"
         static let textColorMuted = "textColorMuted"
     }
     
-    struct Screens {
+    enum Screens {
         static let weatherScreen = "WeatherScreen"
         static let CitySelectScreen = "CitySelectScreen"
     }
 
-    struct Segues {
+    enum Segues {
         static let toCitySelectScreen = "toCitySelectScreen"
         static let toWeatherScreen = "toWeatherScreen"
     }
 
-    struct StorageKeys {
+    enum StorageKeys {
         static let city = "city"
     }
 }
-

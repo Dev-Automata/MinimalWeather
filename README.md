@@ -1,11 +1,11 @@
 # Minimal Weather
 
 Simple and minimalistic iOS app for getting current weather behind a window. It gets data from OpenWeather API base on device location or city name typing.
-Currently, app displays data on Russian only.
 
 Target: iOS 13 and later.
 
 Supports Dark mode (device settings).
+Supports Russian and English languages (via device settings also).
 
 ## Stack
 - UIKit, Storyboard + Auto Layout

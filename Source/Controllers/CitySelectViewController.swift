@@ -17,7 +17,13 @@ class CitySelectViewController: UIViewController {
         cityTextField.addBottomBorder(tag: "bottomLine", color: UIColor(named: K.AssetsColors.textColorBase))
         cityTextField.delegate = self
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        cityTextField.becomeFirstResponder()
+    }
+
     override func viewDidDisappear(_ animated: Bool) {
         view.endEditing(true)
     }
